@@ -57,6 +57,8 @@ var floresta = "<?php echo $_POST['floresta']; ?>";
 var missao = "<?php echo $_POST['missao']; ?>";
 var movimenta = 1;
 var direcao = 40;
+var spawn = "<?php echo $_POST['spawn']; ?>";
+
 var tileMap = [
  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
  [1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,1,1,1,1,1],
@@ -117,6 +119,11 @@ var images = new Array(11);
 // 0->guerreiro / 1->parede / 2->ladrao / 3->terreno / 4->bardo / 5->feiticeira
 // 6->vila / 7->montanha / 8->portal / 9->portal / 10-> boss 
 imprimeMapa(movimenta,direcao);
+if (spawn==0) {
+	$("#dialogo").hide(); 
+}else{
+	$("#conteudo-historia").html("(Apesar de meus poderes e conhecimento, será impossível para eu sozinha enfrentar o Lorde das Trevas... preciso procurar por alguns colegas de aventura para enfrenta-lo, vou dar uma olhada no vilarejo para ver se encontro alguém...)");
+}
 
 function imprimeMapa(seMovimenta,direcao){
 	if (seMovimenta == 1){
@@ -158,6 +165,7 @@ function movePlane() {
     for (var direction in keys) {
         if (!keys.hasOwnProperty(direction)) continue;
         if (direction == 37 && movimenta!=0) {
+   			spawn=0;
         	direcao=37;
             if (tileMap[iP][jP-1]==3){ 
             tileMap[iP][jP]=3;
@@ -181,6 +189,7 @@ function movePlane() {
         }
         if (direction == 39 && movimenta!=0) {
         	direcao=39;
+        	spawn=0;
         	if (tileMap[iP][jP+1]==3){ 
             tileMap[iP][jP]=3;
 			tileMap[iP][jP+1]=selecionado;    
@@ -204,6 +213,7 @@ function movePlane() {
         }
         if (direction == 40 && movimenta!=0) {
         	direcao=40;
+        	spawn=0;
         	if (tileMap[iP+1][jP]==3){ 
             tileMap[iP][jP]=3;
 			tileMap[iP+1][jP]=selecionado;  
@@ -228,6 +238,7 @@ function movePlane() {
 				$("#montanhaId").val("0");
 				$("#florestaId").val("1");
 				$("#missao").val(missao);
+				$("#spawn").val(spawn);
 				//vila;
 				$('form').get(0).setAttribute('action', 'mapaVila.php');
 
@@ -255,7 +266,6 @@ $("body").on( "click",'a',(function(){
 	if($(this).data("id")=="opcaoa2"){
 			movimenta=1;
 			$("#dialogo").hide();
-			movimenta=1;
 	}
 
 
@@ -313,6 +323,7 @@ $("body").on( "click",'a',(function(){
 		$("#montanhaId").val("0");
 		$("#florestaId").val("0");
 		$("#missao").val(missao);
+		$("#spawn").val(spawn);
 		//floresta;
 		$('form').get(0).setAttribute('action', 'mapaBoss.php');
 
@@ -337,10 +348,11 @@ $("body").on( "click",'a',(function(){
 	<input id="montanhaId" name="montanha" value="0" style="display:none;" >
 	<input id="florestaId" name="floresta" value="0" style="display:none;" >
 	<input id="missao" name="missao" value="0" style="display:none;" >
+	<input id="spawnId" name="spawn" value="0" style="display:none;" >
 	<input type="submit" id="btn" style="display:none;">
 </form>
 
-<div id="dialogo" style="display:none">
+<div id="dialogo">
 	<div id="personagem" style="padding: 5px;" >
 		<img id="img-personagem" align="left" src="Imagens/rosto_personagens/feiticeira.png" >
 	</div>

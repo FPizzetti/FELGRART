@@ -129,6 +129,7 @@ var opcao=5;
 	<input id="vilaId" name="vila" value="0" style="display:none;" >
 	<input id="montanhaId" name="montanha" value="0" style="display:none;" >
 	<input id="florestaId" name="floresta" value="0" style="display:none;" >
+	<input id="spawnId" name="spawn" value="1" style="display:none;" >
 	<input id="missao" name="missao" value="0" style="display:none;" >
 	<input type="submit" id="btn" value="Confirmar">
 	</div> 
@@ -149,6 +150,7 @@ $(".pers").click(function(){
 		$("#bardoE").val("1");
 		$("#opcao").val("0");
 		$("#missao").val("2");
+		$("#spawn").val("1");
 	}
 	else if ($(this).data("id")=="2") {
 		$("#personagem").html('<img id="img-personagem" align="left" src="Imagens/rosto_personagens/ladrao.png" >');
@@ -160,6 +162,7 @@ $(".pers").click(function(){
 		$("#bardoE").val("1");
 		$("#opcao").val("2");
 		$("#missao").val("0");
+		$("#spawn").val("1");
 		$('form').get(0).setAttribute('action', 'mapaVila.php');
 		
 	}
@@ -173,6 +176,7 @@ $(".pers").click(function(){
 		$("#feitiE").val("1");
 		$("#opcao").val("4");
 		$("#missao").val("0");
+		$("#spawn").val("1");
 		$('form').get(0).setAttribute('action', 'mapaVila.php');
 	}
 	else {
@@ -184,6 +188,7 @@ $(".pers").click(function(){
 		$("#guerreE").val("1");
 		$("#bardoE").val("1");
 		$("#opcao").val("5");
+		$("#spawn").val("1");
 		$("#missao").val("0");
 		$('form').get(0).setAttribute('action', 'mapaFloresta.php');
 	};

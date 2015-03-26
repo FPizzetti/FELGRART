@@ -60,6 +60,7 @@ var floresta = "<?php echo $_POST['floresta']; ?>";
 var missao = "<?php echo $_POST['missao']; ?>";
 var movimenta = 1;
 var direcao = 40;
+var spawn = "<?php echo $_POST['spawn']; ?>";
 var tileMap = [
  [1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,1,1,1,1],
  [1,1,1,1,1,3,3,3,3,3,3,3,3,3,1,3,1,1,1,1],
@@ -118,6 +119,12 @@ $(document).keyup(function(e) {
 
 var images = new Array(11);
 
+if (spawn==0) {
+	$("#dialogo").hide(); 
+}else{
+$("#conteudo-historia").html("(Hoje fui lutar contra alguns monstros como pedido em um aviso no vilarejo... a recompensa era peças de ouro mas na verdade vim pelo desafio de enfrentar vários monstros sozinho... se bem que não foi la um grande desafio. Já sei! Irei pegar essas peças de ouro e irei procurar por uma maneira de enfrentar o Lorde das Trevas...)");
+}
+
 // 0->guerreiro / 1->parede / 2->ladrao / 3->terreno / 4->bardo / 5->feiticeira
 // 6->vila / 7->montanha / 8->floresta / 9->portal / 10-> boss
 imprimeMapa(movimenta,direcao);
@@ -161,6 +168,7 @@ function movePlane() {
         if (!keys.hasOwnProperty(direction)) continue;
         if (direction == 37 && movimenta!=0) {//esquerda
             direcao=37;
+            spawn=0;
             if (tileMap[iP][jP-1]==3){ 
             tileMap[iP][jP]=3;
 			tileMap[iP][jP-1]=selecionado;   
@@ -183,6 +191,7 @@ function movePlane() {
         }
         if (direction == 38 && movimenta!=0) {//cima
         	direcao=38;
+        	spawn=0;
           	if (tileMap[iP-1][jP]==3){ 
             tileMap[iP][jP]=3;
 			tileMap[iP-1][jP]=selecionado;
@@ -206,6 +215,7 @@ function movePlane() {
         }
         if (direction == 39 && movimenta!=0) {//direita
         	direcao=39;
+        	spawn=0;
         	if (tileMap[iP][jP+1]==3){ 
             tileMap[iP][jP]=3;
 			tileMap[iP][jP+1]=selecionado;	
@@ -230,6 +240,7 @@ function movePlane() {
         }
         if (direction == 40 && movimenta!=0) {//baixo
         	direcao=40;
+        	spawn=0;
         	if (tileMap[iP+1][jP]==3){ 
             tileMap[iP][jP]=3;
 			tileMap[iP+1][jP]=selecionado;  
@@ -332,12 +343,13 @@ $("body").on( "click",'a',(function(){
 	<input id="montanhaId" name="montanha" value="0" style="display:none;" >
 	<input id="florestaId" name="floresta" value="0" style="display:none;" >
 	<input id="missao" name="missao" value="0" style="display:none;" >
+	<input id="spawnId" name="spawn" value="0" style="display:none;" >
 	<input type="submit" id="btn" style="display:none;">
 </form>
 
-<div id="dialogo" style="display:none">
+<div id="dialogo" >
 	<div id="personagem" style="padding: 5px;" >
-		<img id="img-personagem" align="left" src="Imagens/rosto_personagens/feiticeira.png" >
+		<img id="img-personagem" align="left" src="Imagens/rosto_personagens/guerreiro.png" >
 	</div>
 	<p id="conteudo-historia" style="padding: 5px;text-align: justify;"></p>
 </div>

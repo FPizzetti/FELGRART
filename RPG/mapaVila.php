@@ -63,6 +63,7 @@ var floresta = "<?php echo $_POST['floresta']; ?>";
 var missao = "<?php echo $_POST['missao']; ?>";
 var movimenta = 1;
 var direcao = 40;
+var spawn = "<?php echo $_POST['spawn']; ?>";
 var tileMap = [
  [1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1],
  [1,1,1,1,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1],
@@ -163,6 +164,20 @@ $(document).keyup(function(e) {
 
 var images = new Array(11);
 
+if (spawn==0) {
+	$("#dialogo").hide(); 
+}else{
+	if (selecionado==2) {
+		$("#conteudo-historia").html("(Ficar parado aqui com esse bandolim não vai dar em nada... quero bastante grana pow... já sei! Vou achar uns otários para me ajudar a lutar contra o Lorde das Trevas e... enquanto eles lutam irei pegar todo o tesouro dele... hehehehe)");
+		$("#personagem").html('<img id="img-personagem" align="left" src="Imagens/rosto_personagens/ladrao.png" >');
+	} else{
+		$("#conteudo-historia").html("(Hora de sair em uma aventura! E lutar contra o Lorde das Trevas é a oportunidade perfeita para isso! Só que preciso encontrar meu Bandolim antes disso...)");
+		$("#personagem").html('<img id="img-personagem" align="left" src="Imagens/rosto_personagens/bardo.png" >');
+	}
+	
+}
+
+
 // 0->guerreiro / 1->parede / 2->ladrao / 3->terreno / 4->bardo / 5->feiticeira
 // 6->vila / 7->montanha / 8->floresta / 9->portal / 10-> boss
 imprimeMapa(movimenta,direcao);
@@ -217,6 +232,7 @@ function movePlane() {
     for (var direction in keys) {
         if (!keys.hasOwnProperty(direction)) continue;
         if (direction == 37 && movimenta!=0) {
+        	spawn=0;
         	direcao=37;
             if (tileMap[iP][jP-1]==3){ 
             tileMap[iP][jP]=3;
@@ -249,6 +265,7 @@ function movePlane() {
 			}
         }
         if (direction == 38 && movimenta!=0) {
+        	spawn=0;
         	direcao=38;
           	if (tileMap[iP-1][jP]==3){ 
             tileMap[iP][jP]=3;
@@ -283,6 +300,7 @@ function movePlane() {
 			}
         }
         if (direction == 39 && movimenta!=0) {
+        	spawn=0;
         	direcao=39;
         	if (tileMap[iP][jP+1]==3){ 
             tileMap[iP][jP]=3;
@@ -300,6 +318,7 @@ function movePlane() {
 			}
         }
         if (direction == 40 && movimenta!=0) {
+        	spawn=0;
         	direcao=40;
         	if (tileMap[iP+1][jP]==3){ 
             tileMap[iP][jP]=3;
@@ -472,12 +491,13 @@ $("body").on( "click",'a',(function(){
 	<input id="montanhaId" name="montanha" value="0" style="display:none;" >
 	<input id="florestaId" name="floresta" value="0" style="display:none;" >
 	<input id="missao" name="missao" value="0" style="display:none;" >
+	<input id="spawnId" name="spawn" value="0" style="display:none;" >
 	<input type="submit" id="btn" style="display:none;">
 </form>
 
-<div id="dialogo" style="display:none">
+<div id="dialogo" >
 	<div id="personagem" style="padding: 5px;" >
-		<img id="img-personagem" align="left" src="Imagens/rosto_personagens/feiticeira.png" >
+		<img id="img-personagem" align="left" src="Imagens/rosto_personagens/bardo.png" >
 	</div>
 	<p id="conteudo-historia" style="padding: 5px;text-align: justify;"></p>
 </div>
