@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
   	<script type='text/javascript' src='jquery.js'></script>
-	<title>Escolha de Personagem</title>
+	<title>Fim de Jogo</title>
 	<link href="http://fonts.googleapis.com/css?family=Aclonica:regular" rel="stylesheet" type="text/css" >
 	<style type="text/css">
 

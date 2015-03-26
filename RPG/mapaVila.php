@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title> - Teste - </title>
-  
+   <title> Os 4 Aventureiros </title>
+    
   <script type='text/javascript' src='jquery.js'></script>
   
   <style type='text/css'>
