@@ -106,6 +106,12 @@ else
 }
 
 $(window).load(function(){
+
+if (spawn==1) {
+	$("#dialogo").show(); 
+	$("#conteudo-historia").html("(Hoje fui lutar contra alguns monstros como pedido em um aviso no vilarejo... a recompensa era peças de ouro mas na verdade vim pelo desafio de enfrentar vários monstros sozinho... se bem que não foi la um grande desafio. Já sei! Irei pegar essas peças de ouro e irei procurar por uma maneira de enfrentar o Lorde das Trevas...)");
+}
+
 setInterval(movePlane, 100);
 var keys = {}
 
@@ -119,11 +125,7 @@ $(document).keyup(function(e) {
 
 var images = new Array(11);
 
-if (spawn==0) {
-	$("#dialogo").hide(); 
-}else{
-$("#conteudo-historia").html("(Hoje fui lutar contra alguns monstros como pedido em um aviso no vilarejo... a recompensa era peças de ouro mas na verdade vim pelo desafio de enfrentar vários monstros sozinho... se bem que não foi la um grande desafio. Já sei! Irei pegar essas peças de ouro e irei procurar por uma maneira de enfrentar o Lorde das Trevas...)");
-}
+
 
 // 0->guerreiro / 1->parede / 2->ladrao / 3->terreno / 4->bardo / 5->feiticeira
 // 6->vila / 7->montanha / 8->floresta / 9->portal / 10-> boss
@@ -296,7 +298,7 @@ $("body").on( "click",'a',(function(){
 		movimenta=0;
 	}	
 	if ($(this).data("id")=="finalizar") {
-		$("#conteudo-historia").html("(Zumbi encontrado!)<a href='#' data-id='luta-gue'>Prosseguir</a>");
+		$("#conteudo-historia").html("<p>(Zumbi encontrado!)</p><a href='#' data-id='luta-gue'>Prosseguir</a>");
 		$("#personagem").html('<img id="img-personagem" align="left" src="Imagens/rosto_personagens/monstro.png" >');
 		movimenta=0;
 	}
@@ -309,7 +311,7 @@ $("body").on( "click",'a',(function(){
 
 	if ($(this).data("id")=="last") {
 		$("#personagem").html('<img id="img-personagem" align="left" src="Imagens/rosto_personagens/monstro.png" >');
-		$("#conteudo-historia").html("Zumbi derrotado!<a href='#' data-id='fim'>Finalizar</a>");
+		$("#conteudo-historia").html("<p>Zumbi derrotado!</p><a href='#' data-id='fim'>Finalizar</a>");
 	}
 	if ($(this).data("id")=="fim") {
 		missao="2";
@@ -347,7 +349,7 @@ $("body").on( "click",'a',(function(){
 	<input type="submit" id="btn" style="display:none;">
 </form>
 
-<div id="dialogo" >
+<div id="dialogo" style="display:none;">
 	<div id="personagem" style="padding: 5px;" >
 		<img id="img-personagem" align="left" src="Imagens/rosto_personagens/guerreiro.png" >
 	</div>

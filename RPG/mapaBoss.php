@@ -286,12 +286,12 @@ $("body").on( "click",'a',(function(){
 			$("#personagem").html('<img id="img-personagem" align="left" src="Imagens/rosto_personagens/bardo.png" >');
 		}
 		else if(selecionado == 5){
-			$("#conteudo-historia").html("Nossa oportunidade e agora, sinto que ele enfraqueceu!<br/><br/><br/><br/><a href='#' style='text-align: right;' data-id='final1'>1- Eliminar o Lorde das Trevas e tomar a fonte de seu poder para si.</a><br/><a href='#' style='text-align: right;' data-id='final2'>2- Eliminar o Lorde das Trevas e selar a fonte de seus poderes.</a>");
+			$("#conteudo-historia").html("Nossa oportunidade é agora, sinto que ele enfraqueceu!<br/><br/><br/><br/><a href='#' style='text-align: right;' data-id='final1'>1- Eliminar o Lorde das Trevas e tomar a fonte de seu poder para si.</a><br/><a href='#' style='text-align: right;' data-id='final2'>2- Eliminar o Lorde das Trevas e selar a fonte de seus poderes.</a>");
 			$("#personagem").html('<img id="img-personagem" align="left" src="Imagens/rosto_personagens/feiticeira.png" >');
 		}
 	}
 	if($(this).data("id")=="propostaboss"){
-		$("#conteudo-historia").html("Se voce ficar do meu lado agora e me ajudar lhe prometo todos os tesouros de minha fortaleza!<br/><br/><br/><br/><a href='#' style='text-align: right;' data-id='final1'>1- Aceitar a proposta e ficar ao lado do Lorde das Trevas.</a><br/><a href='#' style='text-align: right;' data-id='final2'>2- Negar a proposta e ajudar o grupo de aventureiros.</a>");
+		$("#conteudo-historia").html("Se você ficar do meu lado agora e me ajudar lhe prometo todos os tesouros de minha fortaleza!<br/><br/><br/><br/><a href='#' style='text-align: right;' data-id='final1'>1- Aceitar a proposta e ficar ao lado do Lorde das Trevas.</a><br/><a href='#' style='text-align: right;' data-id='final2'>2- Negar a proposta e ajudar o grupo de aventureiros.</a>");
 		$("#personagem").html('<img id="img-personagem" align="left" src="Imagens/rosto_personagens/boss.png" >');
 	}
 

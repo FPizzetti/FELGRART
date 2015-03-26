@@ -164,9 +164,8 @@ $(document).keyup(function(e) {
 
 var images = new Array(11);
 
-if (spawn==0) {
-	$("#dialogo").hide(); 
-}else{
+if (spawn==1) {
+	$("#dialogo").show(); 
 	if (selecionado==2) {
 		$("#conteudo-historia").html("(Ficar parado aqui com esse bandolim não vai dar em nada... quero bastante grana pow... já sei! Vou achar uns otários para me ajudar a lutar contra o Lorde das Trevas e... enquanto eles lutam irei pegar todo o tesouro dele... hehehehe)");
 		$("#personagem").html('<img id="img-personagem" align="left" src="Imagens/rosto_personagens/ladrao.png" >');
@@ -174,7 +173,6 @@ if (spawn==0) {
 		$("#conteudo-historia").html("(Hora de sair em uma aventura! E lutar contra o Lorde das Trevas é a oportunidade perfeita para isso! Só que preciso encontrar meu Bandolim antes disso...)");
 		$("#personagem").html('<img id="img-personagem" align="left" src="Imagens/rosto_personagens/bardo.png" >');
 	}
-	
 }
 
 
@@ -495,7 +493,7 @@ $("body").on( "click",'a',(function(){
 	<input type="submit" id="btn" style="display:none;">
 </form>
 
-<div id="dialogo" >
+<div id="dialogo" style="display:none;">
 	<div id="personagem" style="padding: 5px;" >
 		<img id="img-personagem" align="left" src="Imagens/rosto_personagens/bardo.png" >
 	</div>

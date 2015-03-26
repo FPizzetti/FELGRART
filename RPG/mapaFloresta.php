@@ -103,6 +103,10 @@ else if(selecionado != 5)
 }
 
 $(window).load(function(){
+if (spawn==1) {
+	$("#dialogo").show(); 
+	$("#conteudo-historia").html("(Apesar de meus poderes e conhecimento, será impossível para eu sozinha enfrentar o Lorde das Trevas... preciso procurar por alguns colegas de aventura para enfrenta-lo, vou dar uma olhada no vilarejo para ver se encontro alguém...)");
+}
 setInterval(movePlane, 100);
 var keys = {}
 
@@ -119,11 +123,7 @@ var images = new Array(11);
 // 0->guerreiro / 1->parede / 2->ladrao / 3->terreno / 4->bardo / 5->feiticeira
 // 6->vila / 7->montanha / 8->portal / 9->portal / 10-> boss 
 imprimeMapa(movimenta,direcao);
-if (spawn==0) {
-	$("#dialogo").hide(); 
-}else{
-	$("#conteudo-historia").html("(Apesar de meus poderes e conhecimento, será impossível para eu sozinha enfrentar o Lorde das Trevas... preciso procurar por alguns colegas de aventura para enfrenta-lo, vou dar uma olhada no vilarejo para ver se encontro alguém...)");
-}
+
 
 function imprimeMapa(seMovimenta,direcao){
 	if (seMovimenta == 1){
@@ -264,21 +264,21 @@ $("body").on( "click",'a',(function(){
 	}
 
 	if($(this).data("id")=="opcaoa2"){
-			movimenta=1;
-			$("#dialogo").hide();
+		movimenta=1;
+		$("#dialogo").hide();
 	}
 
 
 	if ($(this).data("id")=="opcao2-link"){
-		$("#conteudo-historia").html("Seu safado!<a href='#' style='text-align: right;' data-id=gameover>Prosseguir</a>");
+		$("#conteudo-historia").html("<p>Seu safado!</p><a href='#' style='text-align: right;' data-id=gameover>Prosseguir</a>");
 		$("#personagem").html('<img id="img-personagem" align="left" src="Imagens/rosto_personagens/feiticeira.png" >');
 		movimenta=0;		
 	}
 
 	if ($(this).data("id")=="gameover"){
 		$("#dialogo").hide();
-		alert("Game Over");
 		movimenta=0;
+		alert('Game Over');
 		missao="0";//finalizada
 		selecionado="5";
 		window.location = "index.php";
@@ -352,7 +352,7 @@ $("body").on( "click",'a',(function(){
 	<input type="submit" id="btn" style="display:none;">
 </form>
 
-<div id="dialogo">
+<div id="dialogo" style="display:none;">
 	<div id="personagem" style="padding: 5px;" >
 		<img id="img-personagem" align="left" src="Imagens/rosto_personagens/feiticeira.png" >
 	</div>
